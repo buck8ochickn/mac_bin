@@ -8,6 +8,7 @@
 
 
 
+clamnhunter () {
 
 brew install clamav rkhunter vim htop
 #configure clamav.conf.sample
@@ -19,7 +20,13 @@ sed -i -e 's/Example$/#Example/g' /etc/clamav/freshclam.conf.smaple
 cp /usr/local/etc/clamav/clamd.conf.sample /usr/local/etc/clamav/clamd.conf
 cp /etc/clamav/freshclam.conf.sample /etc/clamav/freshclam.conf
 
+PidFile /var/run/clamd.pid
+#configure clam and rk crons
 
+}
+
+
+mailsetup () {
 #send mail needs configuring
 #sudo vim /etc/postfix/main.cf
 #http://www.developerfiles.com/how-to-send-emails-from-localhost-mac-os-x-el-capitan/
@@ -56,8 +63,9 @@ sudo launchctl start org.postfix.master
 #
 #send test email
 
-PidFile /var/run/clamd.pid
-#configure clam and rk crons
+}
+
+
 
 
 #################################
