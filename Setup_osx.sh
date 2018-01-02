@@ -2,6 +2,13 @@
 
 
 
+
+
+
+
+
+
+
 brew install clamav rkhunter vim htop
 #configure clamav.conf.sample
 sed -i -e 's/Example$/#Example/g' /usr/local/etc/clamav/clamd.conf.sample
@@ -51,3 +58,17 @@ sudo launchctl start org.postfix.master
 
 PidFile /var/run/clamd.pid
 #configure clam and rk crons
+
+
+#################################
+#http://docs.hardentheworld.org/OS/MacOS_10.12_Sierra/#destroy-filevault-keys
+#
+#Hardening the OS
+
+
+
+echo "Now hardening the os" >> TEMP
+
+echo "Set Destroy FileVault Keys (clears filevault keys from ram)">>
+
+sudo pmset destroyfvkeyonstandby 1
