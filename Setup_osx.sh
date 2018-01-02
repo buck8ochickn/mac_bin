@@ -65,10 +65,14 @@ PidFile /var/run/clamd.pid
 #
 #Hardening the OS
 
-
+oshardening () {
 
 echo "Now hardening the os" >> TEMP
 
 echo "Set Destroy FileVault Keys (clears filevault keys from ram)">>
 
 sudo pmset destroyfvkeyonstandby 1
+
+
+
+}
