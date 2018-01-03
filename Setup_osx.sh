@@ -84,3 +84,41 @@ sudo pmset destroyfvkeyonstandby 1
 
 
 }
+
+##############################################
+#
+# How would you like to prepare your system
+
+
+
+
+
+
+
+read -p 'Would you like to harden the OS (yes/no): ' sec_input;
+if [[ "$sec_input" ==  y*  ||  "$sec_input" == Y*  ]] ; then
+        sec_oshardening='true'
+fi
+
+read -p 'Would you like to install rkhunter and clamav (yes/no): ' sec_input;
+if [[ "$sec_input" ==  y*  ||  "$sec_input" == Y*  ]] ; then
+        sec_clamnhunter='true'
+fi
+
+
+######################################
+#
+# run the functions of the respective choices 
+#
+
+
+
+if sec_oshardening = true ; then
+oshardening
+fi
+
+if sec_clamnhunter = true ; then
+clamnhunter
+fi
+
+clamnhunter 
