@@ -8,7 +8,7 @@
 
 
 
-clamnhunter () {
+clamnhunter() {
 
 brew install clamav rkhunter vim htop
 #configure clamav.conf.sample
@@ -26,7 +26,7 @@ PidFile /var/run/clamd.pid
 }
 
 
-mailsetup () {
+mailsetup() {
 #send mail needs configuring
 #sudo vim /etc/postfix/main.cf
 #http://www.developerfiles.com/how-to-send-emails-from-localhost-mac-os-x-el-capitan/
@@ -73,7 +73,7 @@ sudo launchctl start org.postfix.master
 #
 #Hardening the OS
 
-oshardening () {
+oshardening() {
 
 echo "Now hardening the os" >> TEMP
 
@@ -84,6 +84,26 @@ sudo pmset destroyfvkeyonstandby 1
 
 
 }
+
+
+
+
+
+
+
+
+
+sec_exit() {
+        less $TEMP
+        echo "The script has finished running. The server will reboot in 1 minute. Notes have been saved to $TEMP in ~/Desktop/$TEMP"
+        /sbin/shutdown -r 1
+        #forced reboot, to make sure there are no hidden issues
+exit;
+}
+
+
+
+
 
 ##############################################
 #
@@ -104,6 +124,7 @@ read -p 'Would you like to install rkhunter and clamav (yes/no): ' sec_input;
 if [[ "$sec_input" ==  y*  ||  "$sec_input" == Y*  ]] ; then
         sec_clamnhunter='true'
 fi
+
 
 
 ######################################
