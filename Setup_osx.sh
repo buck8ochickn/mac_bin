@@ -81,7 +81,14 @@ echo "Set Destroy FileVault Keys (clears filevault keys from ram)">>
 
 sudo pmset destroyfvkeyonstandby 1
 
+echo "disableing the creation of metadatafiles" >> TEMP
 
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
+
+#things needed to be done out side of the script
+
+read -p "Please set your privacy setting nowSystem Preferences ⇒ Security & Privacy ⇒ Privacy"
 
 }
 
