@@ -81,14 +81,26 @@ echo "Set Destroy FileVault Keys (clears filevault keys from ram)">>
 
 sudo pmset destroyfvkeyonstandby 1
 
-echo "disableing the creation of metadatafiles" >> TEMP
+echo "disabling the creation of metadatafiles" >> TEMP
 
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
+defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 
 
 #things needed to be done out side of the script
 
 read -p "Please set your privacy setting nowSystem Preferences ⇒ Security & Privacy ⇒ Privacy"
+
+read -p "Please disable system diagnostics : System Preferences ⇒ Security & Privacy ⇒ Privacy ⇒ Diagnostics & Usage"
+
+read -p "Please disable the guest user: System Preferences ⇒ Users & Groups ⇒ Guest User Un-check 'Allow guests to log in to this computer'."
+
+read -p "Please disable handoff System Preferences ⇒ General Un-check 'Allow Handoff between this Mac and your iCloud devices'."
+
+
+
+
 
 }
 
