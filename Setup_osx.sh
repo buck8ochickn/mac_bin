@@ -1,8 +1,24 @@
 #untested
 
 
+############################
+#
+#turn off rootless
+#writen with help from
+#https://www.howtogeek.com/230424/how-to-disable-system-integrity-protection-on-a-mac-and-why-you-shouldnt/
+
+integrity() {
+
+read -p "requires a reboot into recovery mode"
 
 
+#csrutil status
+
+
+
+
+
+}
 
 
 
@@ -69,7 +85,7 @@ sudo launchctl start org.postfix.master
 
 
 #################################
-#http://docs.hardentheworld.org/OS/MacOS_10.12_Sierra/#destroy-filevault-keys
+#https://docs.hardentheworld.org/OS/MacOS_10.12_Sierra/#destroy-filevault-keys
 #
 #Hardening the OS
 
@@ -92,11 +108,21 @@ defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 
 read -p "Please set your privacy setting nowSystem Preferences ⇒ Security & Privacy ⇒ Privacy"
 
-read -p "Please disable system diagnostics : System Preferences ⇒ Security & Privacy ⇒ Privacy ⇒ Diagnostics & Usage"
+read -p "Please disable system diagnostics : System Preferences ⇒ Security & Privacy ⇒ Privacy ⇒ Diagnostics & Usage ⇒ Un-check 'Send diagnostic & usage data to Apple'. Un-check 'Share crash data with app developers'."
 
-read -p "Please disable the guest user: System Preferences ⇒ Users & Groups ⇒ Guest User Un-check 'Allow guests to log in to this computer'."
+read -p "Please disable the guest user: System Preferences ⇒ Users & Groups ⇒ Guest User ⇒ Un-check 'Allow guests to log in to this computer'."
 
-read -p "Please disable handoff System Preferences ⇒ General Un-check 'Allow Handoff between this Mac and your iCloud devices'."
+read -p "Please disable handoff: System Preferences ⇒ General ⇒ Un-check 'Allow Handoff between this Mac and your iCloud devices'."
+
+read -p "Please disable password hints: System Preferences ⇒ Users & Groups ⇒ Login Options ⇒ Un-check 'Show password hints'."
+
+read -p "Please disable recent history: System Preferences ⇒ General ⇒ Set 'Recent items' to 'None'."
+
+read -p "Please Disable Localization Services: System Preferences ⇒ Security & Privacy ⇒ Privacy ⇒ Location Services Select “System Services” and click 'Details...'. It is suggested to disable localization for all services, if not needed."
+
+read -p
+#needs rootless off 
+sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist
 
 
 
@@ -129,7 +155,10 @@ exit;
 # How would you like to prepare your system
 
 
-
+read -p 'Would you like to temporarly or perminantly disable System Integrity Protection (yes/no): ' sec_input;
+if [[ "$sec_input" ==  y*  ||  "$sec_input" == Y*  ]] ; then
+        sec_integrity='true'
+fi
 
 
 
@@ -152,6 +181,9 @@ fi
 #
 
 
+if sec_integrity = true ; then
+integrity
+fi
 
 if sec_oshardening = true ; then
 oshardening
@@ -161,4 +193,3 @@ if sec_clamnhunter = true ; then
 clamnhunter
 fi
 
-clamnhunter 
