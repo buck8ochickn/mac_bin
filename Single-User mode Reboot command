@@ -1,0 +1,2 @@
+sudo nvram boot-args="-s"
+
