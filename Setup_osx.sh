@@ -120,9 +120,10 @@ read -p "Please disable recent history: System Preferences ⇒ General ⇒ Set '
 
 read -p "Please Disable Localization Services: System Preferences ⇒ Security & Privacy ⇒ Privacy ⇒ Location Services Select “System Services” and click 'Details...'. It is suggested to disable localization for all services, if not needed."
 
-read -p
+read -p "Please disable Spotlight: System Preferences ⇒ Spotlight Un-check 'Allow Spotlight Suggestions in Spotlight and Look Up'."
 #needs rootless off 
 sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist
+
 
 
 
