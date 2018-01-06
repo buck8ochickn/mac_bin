@@ -12,9 +12,13 @@ integrity() {
 read -p "requires a reboot into recovery mode"
 
 
-#csrutil status
-
-
+csrutil status
+read -p "Are you sure you want to disable System Integrity Protection" sec_imput
+if [[ "$sec_input" ==  y*  ||  "$sec_input" == Y*  ]] ; then
+       echo " Aborting "
+       exit 0
+fi
+csrutil disable
 
 
 
