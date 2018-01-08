@@ -12,6 +12,13 @@ integrity() {
 read -p "requires a reboot into recovery mode"
 
 
+echo "creating a bash file to run located in ~/csrutil_status changer.sh"
+read -p "please run after reboot in recovery mode"
+
+
+#csrutil script
+cat > ~/csrutil_status changer.sh << EOL
+
 csrutil status
 read -p "Are you sure you want to disable System Integrity Protection" sec_imput
 if [[ "$sec_input" ==  y*  ||  "$sec_input" == Y*  ]] ; then
@@ -20,6 +27,8 @@ if [[ "$sec_input" ==  y*  ||  "$sec_input" == Y*  ]] ; then
 fi
 csrutil disable
 
+EOL
+#/script
 
 
 }
