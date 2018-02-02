@@ -167,6 +167,10 @@ exit;
 }
 
 
+read -p "please enable screen locking visit"
+
+read -p "System Preferences > Security & Privacy and check the box for Require Password after. In the drop-down menu, you can set timing of the password to immediately"
+
 
 
 
