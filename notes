@@ -1,0 +1,4 @@
+#install dev tools
+xcode-select --install
+
+#set up brew
