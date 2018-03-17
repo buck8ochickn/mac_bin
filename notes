@@ -1,6 +1,9 @@
 #install dev tools
 xcode-select --install
 
+brew install llvm --with-toolchain
+brew install 
+
 #set up brew
 
 #show hidden files
