@@ -2,3 +2,5 @@
 xcode-select --install
 
 #set up brew
+
+#show hidden files
