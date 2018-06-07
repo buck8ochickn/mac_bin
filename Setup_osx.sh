@@ -197,7 +197,10 @@ if [[ "$sec_input" ==  y*  ||  "$sec_input" == Y*  ]] ; then
         sec_clamnhunter='true'
 fi
 
-
+######################################
+# brew tools 
+# ip command
+brew install iproute2mac
 
 ######################################
 #
