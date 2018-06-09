@@ -7,3 +7,9 @@ brew install
 #set up brew
 
 #show hidden files
+
+
+
+#write isos faster with rdisk "raw"
+diskutil unmountDisk /dev/disk2
+sudo dd bs=1m if=~/Downloads/2013-10-09.alice.img of=/dev/rdisk2
