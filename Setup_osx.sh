@@ -220,3 +220,6 @@ if sec_clamnhunter = true ; then
 clamnhunter
 fi
 
+#custom shutdown
+truecrypt /wipecache
+shutdown -h now
